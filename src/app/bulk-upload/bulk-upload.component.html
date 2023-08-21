@@ -1,6 +1,6 @@
 <div>
     <nz-input-group nzPrefixIcon="user">
-        <input type="text" nz-input placeholder="Username" [(ngModel)]="bulkInput.username">
+        <input type="text" nz-input placeholder="Test name" [(ngModel)]="bulkInput.username">
     </nz-input-group>
     <br>
     <br>
@@ -25,5 +25,14 @@
     <li *ngFor="let smiles of bulkInput.smiles">{{smiles}}</li>
 </ul>
 
-<button nz-button class="login-form-button login-form-margin" [nzType]="'primary'" (click)="predict">开始预测</button>
+<button nz-button class="login-form-button login-form-margin" [nzType]="'primary'" (click)="predict()">开始预测</button>
 
+<br>
+<br>
+
+<div>预测结果：<div>
+<ul>
+    <li *ngFor="let item of result; let i = index">{{bulkInput.smiles[i]}}: {{result[i]}}</li>
+</ul>
+
+<button *ngIf="filename" nz-button class="login-form-button login-form-margin" [nzType]="'primary'" (click)="download()">下载结果</button>

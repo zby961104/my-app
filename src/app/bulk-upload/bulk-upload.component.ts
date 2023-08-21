@@ -15,6 +15,7 @@ export class BulkUploadComponent implements OnInit {
   bulkInput: BulkInput;
 
   result:string[]=[];
+  filename?:string;
 
   constructor(private fileService: FileService, private msg: NzMessageService, private apiService: ApiService) { }
 
@@ -23,6 +24,10 @@ export class BulkUploadComponent implements OnInit {
   }
 
   async upload(e: Event){
+    this.filename = null
+    this.result = []
+    this.bulkInput.smiles = []
+
     const f = e.target as HTMLInputElement;
     const file = f.files[0];
     f.value = ''; // 解决上传同个文件失效
@@ -36,8 +41,22 @@ export class BulkUploadComponent implements OnInit {
   }
 
   predict(){
-    this.apiService.predictAll(this.bulkInput).subscribe((data:{result:string[]}) =>{
+    this.apiService.predictAll(this.bulkInput).subscribe((data:{result:string[], filename:string}) =>{
       this.result = data.result
+      this.filename = data.filename
+    })
+  }
+
+  download(){
+    this.apiService.download(this.filename).subscribe((data) => {
+      var sJson = JSON.stringify(data);
+      var element = document.createElement('a');
+      element.setAttribute('href', "data:text/json;charset=UTF-8," + encodeURIComponent(sJson));
+      element.setAttribute('download', this.filename);
+      element.style.display = 'none';
+      document.body.appendChild(element);
+      element.click(); // simulate click
+      document.body.removeChild(element);
     })
   }
   
