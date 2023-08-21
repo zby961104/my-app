@@ -1,0 +1,29 @@
+<div>
+    <nz-input-group nzPrefixIcon="user">
+        <input type="text" nz-input placeholder="Username" [(ngModel)]="bulkInput.username">
+    </nz-input-group>
+    <br>
+    <br>
+    <nz-select [(ngModel)]="bulkInput.dataset">
+        <nz-option nzValue="BACE" nzLabel="BACE-1抑制活性"></nz-option>
+        <nz-option nzValue="BBBP" nzLabel="血脑屏障穿透性"></nz-option>
+    </nz-select>
+</div>
+
+<br>
+
+<div>
+    <button nz-button (click)="fileUpload.click()"><i nz-icon nzType="upload"></i>点击上传文件 (.csv, .txt)</button>
+    <input #fileUpload type="file" accept=".csv, .txt" style="display: none;" (change)="upload($event)" multiple="false"/>
+</div>
+
+<br>
+
+<div>该文件中所包含的SMILES: </div>
+
+<ul>
+    <li *ngFor="let smiles of bulkInput.smiles">{{smiles}}</li>
+</ul>
+
+<button nz-button class="login-form-button login-form-margin" [nzType]="'primary'" (click)="predict">开始预测</button>
+
