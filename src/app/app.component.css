@@ -17,8 +17,10 @@
   }
 
   nz-header {
+    text-align: center;
     background: #fff;
     padding: 0;
+    font-size: 22px;
   }
 
   nz-content {

@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'my-app';
+  title = '基于图结构学习的药物分子性质预测系统';
   isCollapsed = false;
 
   constructor(){}

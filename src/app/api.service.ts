@@ -28,4 +28,14 @@ export class ApiService {
     let url = BASE_URL + "download/" + filename;
     return this.http.get(url);
   }
+
+  getHistory(){
+    let url = BASE_URL + "history/single";
+    return this.http.get(url);
+  }
+
+  getBulkHistory(){
+    let url = BASE_URL + "history/bulk";
+    return this.http.get(url)
+  }
 }

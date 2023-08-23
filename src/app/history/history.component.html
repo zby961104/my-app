@@ -1,1 +1,43 @@
-<p>history works!</p>
+<nz-table #borderedTable nzBordered nzFooter="" nzTitle="单分子性质预测" [nzData]="historyDataList">
+    <thead>
+      <tr>
+        <th>测试名称</th>
+        <th>时间</th>
+        <th>SMILES</th>
+        <th>预测性质</th>
+        <th>预测结果</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of borderedTable.data">
+        <td>{{ data.username }}</td>
+        <td>{{ data.time }}</td>
+        <td>{{ data.smiles }}</td>
+        <td>{{datasetMap[data.dataset]}}</td>
+        <td>{{ data.result }}</td>
+      </tr>
+    </tbody>
+  </nz-table>
+
+  <nz-table #outBordered nzOuterBordered nzFooter="" nzTitle="批量分子性质预测" [nzData]="bulkHistoryDataList">
+    <thead>
+      <tr>
+        <th>测试名称</th>
+        <th>时间</th>
+        <th>预测性质</th>
+        <th>预测结果</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of outBordered.data">
+        <td>{{ data.username }}</td>
+        <td>{{ data.time }}</td>
+        <td>{{datasetMap[data.dataset]}}</td>
+        <td>
+            <button nz-button nzType="primary" [nzSize]="size" nzShape="round"  (click)="download(data.download)">
+                <i nz-icon nzType="download"></i>Download
+            </button>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>

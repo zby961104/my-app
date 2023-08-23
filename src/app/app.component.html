@@ -18,13 +18,14 @@
         </li>
         <li nz-menu-item>
             <i nz-icon nzType="history" nzTheme="outline"></i>
-            <a routerLink="history">历史结果查询</a>
+            <a routerLink="history">历史结果</a>
         </li>
       </ul>
     </nz-sider>
     <nz-layout>
       <nz-header>
-        <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'" (click)="isCollapsed = !isCollapsed"></i>
+        <!-- <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'" (click)="isCollapsed = !isCollapsed"></i> -->
+        <b>基于图结构学习的药物分子性质预测系统</b>
       </nz-header>
       <nz-content>
         <nz-breadcrumb [nzAutoGenerate]="true"></nz-breadcrumb>

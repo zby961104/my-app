@@ -24,6 +24,20 @@
     </nz-form-item>
     
     <div nz-row class="login-form-margin">
+      <div nz-col [nzSpan]="12"> 
+          <label nz-checkbox formControlName="checked">
+            <span>分子图结构学习</span>
+          </label>        
+      </div>
+
+      <div nz-col [nzSpan]="12">
+          <label nz-checkbox formControlName="checked2">
+            <span>分子间关系图结构学习</span>
+          </label>
+      </div>
+    </div>
+
+    <div nz-row class="login-form-margin">
       <div nz-col [nzSpan]="12">
         <label nz-checkbox formControlName="remember">
           <span>记录预测结果</span>
@@ -33,4 +47,5 @@
     <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">开始预测</button>
 </form>
 
-<p>预测结果: {{result}}</p>
+<div>预测结果: {{result}}</div>
+

@@ -45,7 +45,9 @@ export class InputComponent implements OnInit {
       username: [null, [Validators.required]],
       smiles: [null, [Validators.required]],
       remember: [true],
-      dataset: ["BACE"]
+      dataset: ["BACE"],
+      checked:[true],
+      checked2:[false]
     });
   }
 

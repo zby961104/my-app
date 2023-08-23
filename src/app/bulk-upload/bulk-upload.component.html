@@ -8,6 +8,21 @@
         <nz-option nzValue="BACE" nzLabel="BACE-1抑制活性"></nz-option>
         <nz-option nzValue="BBBP" nzLabel="血脑屏障穿透性"></nz-option>
     </nz-select>
+    <br>
+    <br>
+    <div nz-row class="login-form-margin">
+        <div nz-col [nzSpan]="6"> 
+            <label nz-checkbox [(ngModel)]="checked">
+              <span>分子图结构学习</span>
+            </label>        
+        </div>
+  
+        <div nz-col [nzSpan]="6">
+            <label nz-checkbox [(ngModel)]="checked2">
+              <span>分子间关系图结构学习</span>
+            </label>
+        </div>
+    </div>
 </div>
 
 <br>

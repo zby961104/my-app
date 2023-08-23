@@ -16,6 +16,8 @@ export class BulkUploadComponent implements OnInit {
 
   result:string[]=[];
   filename?:string;
+  checked = true;
+  checked2 = false
 
   constructor(private fileService: FileService, private msg: NzMessageService, private apiService: ApiService) { }
 
